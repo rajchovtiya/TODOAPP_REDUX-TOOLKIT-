@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask, EditTask, removeTask } from '../Store';
+import { addTask, EditTask, fetchTasks, removeTask } from '../Store';
 
 const Todo = () => {
     const {
@@ -16,6 +16,7 @@ const Todo = () => {
 
     const [editId, setEditId] = useState(null);
     const task = useSelector((state) => state.reducerStore.task);
+
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
@@ -52,6 +53,7 @@ const Todo = () => {
                         {editId !== null ? "Update Task" : "Add Todo"}
                     </button>
                 </form>
+                <button onClick={() => dispatch(fetchTasks())}>Fetch Tasks</button>
 
                 <ul className='list-none p-0 m-0'>
                     {task.length === 0 ? (
