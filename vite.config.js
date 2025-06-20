@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/TODOAPP_REDUX-TOOLKIT-', // 👈 Add this line
+base: '/TODOAPP_REDUX-TOOLKIT-/',
 });
