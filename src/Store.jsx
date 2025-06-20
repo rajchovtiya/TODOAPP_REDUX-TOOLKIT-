@@ -6,7 +6,9 @@ export const fetchTasks = createAsyncThunk("task/fetchTasks", async () => {
     const data = await response.json();
     return data.map(item => ({ id: item.id, title: item.title }));
 });
-
+const initialState = {
+    task: []
+}
 
 const reducerStore = createSlice({
     name: "task",
